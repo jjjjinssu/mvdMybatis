@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class PersonRepository {
 
-    private String url = "jdbc:mariadb://localhost:3306/spring";
+    private String url = "jdbc:mariadb://localhost:3307/spring";
     private String username = "root";
     private String password = "1234";
 

@@ -12,11 +12,12 @@ import java.util.List;
 
 @Repository("jdbc")
 public class ScoreJdbcRepository implements ScoreRepository {
-
+    // 마리아 디비 연결
     private String url = "jdbc:mariadb://localhost:3306/spring";
     private String username = "root";
     private String password = "1234";
 
+    //jdbc 생성자 생성
     public ScoreJdbcRepository() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
@@ -26,6 +27,7 @@ public class ScoreJdbcRepository implements ScoreRepository {
     }
 
     @Override
+    //스코어객체 반환
     public List<Score> findAll() {
         return null;
     }
@@ -36,13 +38,13 @@ public class ScoreJdbcRepository implements ScoreRepository {
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
-            String sql = "SELECT * FROM tbl_score";
+            String sql = "SELECT * FROM tbl_score"; // 방식은 비슷비슷한데 sql 방법이 조금씩 다르다 (조회)
 
-            PreparedStatement pstmt = conn.prepareStatement(sql);
+            PreparedStatement pstmt = conn.prepareStatement(sql); //sql 쿼리를 실행하기 위한 사전 컴파일러
 
             ResultSet rs = pstmt.executeQuery();
 
-            while (rs.next()) {
+            while (rs.next()) { //한줄 한줄 넘어가는
                 scoreList.add(new Score(rs));
             }
 
@@ -54,6 +56,8 @@ public class ScoreJdbcRepository implements ScoreRepository {
     }
 
     @Override
+
+    //방법이 2~3가지 있음 옛날버전 부터 간소화 까지..
     public boolean save(Score score) {
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace에는 인터페이스 풀 네임(패키지+인터페이스이름) -->
+<mapper namespace="com.spring.mvc.mybatis.ScoreMapper">
+
+<!-- SQL 작성 : 추상메서드 별로 작성-->
+<!--    ID 에는  추상메서드 이름 적습니다.-->
+    <insert id="save">
+        INSERT INTO score
+        (kor,eng,math,stuNum)
+        VALUES (#{kor},#{eng},#{math},)
+<!--디비는 자바에 있는모든 변수들 넣어줘야함 단.. 프라이머리키 그 AUTO Incremeant  -->
+<!--   프라이머리키  및 auto increament db에서 확인할수 있음-->
+
+    </insert>
+
+
+    <update id="change">
+        UPDATE score
+        SET  = #{}, kor = #{kor} , eng =#{eng} , math={#math}
+        WHERE stu_Num
+<!--   WHERE 조건절에는 프라이머리키가 들어감 -->
+    </update>

@@ -10,7 +10,14 @@ import java.sql.SQLException;
 @ToString @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+
+// 여기에 Builder 를 찍으면 총점 평균 학점은 자동으로 해주는건데 입력되지않아
+// name ,kor, eng, math가 DTO에 Builder를 해준다.
+
 public class Score {
+
+
+    //변수
 
     private String name; // 학생 이름
     private int kor, eng, math; // 국, 영, 수 점수
@@ -63,3 +70,8 @@ public class Score {
         this.average = total / 3.0;
     }
 }
+
+
+
+
+//

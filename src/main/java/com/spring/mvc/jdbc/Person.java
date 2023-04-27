@@ -11,8 +11,9 @@ import java.sql.SQLException;
 @ToString @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Person {
-
+ // 클래스에 있는 필드들 id ,personName, personAge
     private long id;
     private String personName;
     private int personAge;
